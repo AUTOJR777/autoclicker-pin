@@ -1,11 +1,3 @@
-// @name         AUTOJR🌨⛈ - Painel Redondo Compacto
-// @namespace    http://tampermonkey.net/
-// @version      1.4
-// @description  Painel redondo fofo compacto, verde bebê, título AUTOJR, contador funcional e cliques automáticos.
-// @match        https://aviator-next.spribegaming.com/*
-// @grant        none
-// ==/UserScript==
-
 (function () {
     'use strict';
 
@@ -55,9 +47,9 @@
         top: '20px',
         right: '20px',
         zIndex: 9999,
-        backgroundColor: '#A8E6CF', // verde bebê fofo
+        backgroundColor: '#A8E6CF',
         padding: '8px',
-        borderRadius: '10%',          // redondo
+        borderRadius: '10%',
         width: '120px',
         height: '120px',
         display: 'flex',
@@ -71,7 +63,6 @@
         color: '#333'
     });
 
-    // Título
     const titulo = document.createElement('div');
     titulo.textContent = 'AUTOJR';
     Object.assign(titulo.style, {
@@ -82,7 +73,6 @@
         textAlign: 'center'
     });
 
-    // Botão ON/OFF
     const toggleBtn = document.createElement('button');
     toggleBtn.textContent = 'OFF';
     Object.assign(toggleBtn.style, {
@@ -97,7 +87,6 @@
         margin: '2px 0'
     });
 
-    // Input de tempo
     const input = document.createElement('input');
     input.type = 'number';
     input.min = 0;
@@ -117,7 +106,6 @@
         margin: '2px 0'
     });
 
-    // Contador
     const countdownSpan = document.createElement('div');
     countdownSpan.textContent = '00:00';
     Object.assign(countdownSpan.style, {
@@ -133,7 +121,6 @@
     panel.appendChild(countdownSpan);
     document.body.appendChild(panel);
 
-    // Drag
     panel.addEventListener('mousedown', (e) => {
         if (e.target === toggleBtn || e.target === input) return;
         isDragging = true;
